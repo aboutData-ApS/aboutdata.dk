@@ -805,7 +805,8 @@
 
   <!-- CMS Sync: henter indhold fra Supabase og opdaterer siden -->
   <script>
-    (async function syncCMS() {
+    document.documentElement.style.opacity = '0'
+    ;(async function syncCMS() {
       const SUPABASE_URL = 'https://iswstdphmoznbujgcbpg.supabase.co'
       const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlzd3N0ZHBobW96bmJ1amdjYnBnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU4MTc2ODQsImV4cCI6MjA5MTM5MzY4NH0._T9aI9Dak0thqqQ239H_pEl8PZP8ftyGGnCp2G1cUFQ'
 
@@ -899,6 +900,9 @@
 
       } catch (e) {
         // Fejl: behold det statiske indhold som fallback
+      } finally {
+        document.documentElement.style.transition = 'opacity 0.15s ease'
+        document.documentElement.style.opacity = '1'
       }
     })()
   </script>
